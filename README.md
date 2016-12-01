@@ -1,0 +1,1 @@
+This is a very simple Android application that uses our Android SDK. There's a tag called "without-sdk" for the full application before our SDK was added. So a good way to demo is to `git checkout without-sdk` show the app, then `git checkout master` to show what changes when you add in the SDK.
