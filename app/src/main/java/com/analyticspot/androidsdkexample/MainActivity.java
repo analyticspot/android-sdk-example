@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
+import com.analyticspot.anxevent.Level;
 
 public class MainActivity extends AppCompatActivity {
   private static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -29,18 +30,38 @@ public class MainActivity extends AppCompatActivity {
       Log.i(LOG_TAG, "Generic event button clicked.");
       Toast toast = Toast.makeText(this, "Generic event", Toast.LENGTH_SHORT);
       toast.show();
+
+      application.getEventManager().genericEvent()
+          .putTag("generic", "event")
+          .send();
     });
 
     levelBtn.setOnClickListener(view -> {
       Log.i(LOG_TAG, "Level event button clicked.");
       Toast toast = Toast.makeText(this, "Level event", Toast.LENGTH_SHORT);
       toast.show();
+
+      application.getEventManager().levelEvent()
+          .level()
+            .setLevelDifficulty(8)
+            .setLevelId("LevelButtonClicked")
+            .setProgressType(Level.ProgressType.FORWARD)
+            .close()
+          .send();
     });
 
     itemBtn.setOnClickListener(view -> {
       Log.i(LOG_TAG, "Item event button clicked.");
       Toast toast = Toast.makeText(this, "Item event", Toast.LENGTH_SHORT);
       toast.show();
+
+      application.getEventManager().itemEvent()
+          .item()
+            .setItemCode("Item 18")
+            .setItemDescription("An item that teaches stuff")
+            .setItemDifficulty(3)
+            .close()
+          .send();
     });
   }
 }

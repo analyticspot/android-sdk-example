@@ -35,6 +35,7 @@ repositories {
 }
 
 dependencies {
+    compile 'com.analyticspot:android-sdk:1.0.28'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:multidex:1.0.1'
 
