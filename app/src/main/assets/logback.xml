@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configuration>
+  <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+    <tagEncoder>
+      <pattern>demo-app</pattern>
+    </tagEncoder>
+    <encoder>
+       <pattern>%logger{0} %msg</pattern>
+    </encoder>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="logcat"/>
+  </root>
+</configuration>

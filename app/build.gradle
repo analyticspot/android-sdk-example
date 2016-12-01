@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "com.analyticspot.androidsdkexample"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        jackOptions {
+            enabled false
+        }
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+}
+
+repositories {
+    maven { url "https://raw.githubusercontent.com/analyticspot/maven-sdk/master" }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:multidex:1.0.1'
+
+    apk 'com.github.tony19:logback-android-core:1.1.1-6'
+    apk 'com.github.tony19:logback-android-classic:1.1.1-6'
+
+    testCompile 'junit:junit:4.12'
+}
